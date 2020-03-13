@@ -6,6 +6,7 @@
             <div *ngFor="let hero of heroes" class="card m-2 flex-fill">
                 <div class="card-body">
                     <h3 class="card-title">{{hero.name}}</h3>
+                    <p *ngIf="hero.power" class="card-text">{{hero.power}}</p>
                     <a class="card-link" routerLink="/heroes/{{hero.id}}">See Details</a>
                 </div>
             </div>

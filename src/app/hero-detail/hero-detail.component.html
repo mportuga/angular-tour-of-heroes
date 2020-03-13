@@ -1,7 +1,7 @@
 <form *ngIf="hero" name="hero-details" (submit)="save()">
-    <h2>{{hero.name | uppercase}} Details</h2>
+    <h3>{{hero.name | uppercase}} Details</h3>
     <div class="form-group row">
-        <label for="static-id" class="col-sm-2 col-form-label">id:</label>
+        <label for="static-id" class="col-sm-2 col-form-label">Id:</label>
         <div class="col-sm-10">
             <input type="text"
                 readonly
@@ -13,19 +13,39 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="input-name" class="col-sm-2 col-form-label">name:</label>
+        <label for="input-name" class="col-sm-2 col-form-label">Name:</label>
         <div class="col-sm-10">
             <input class="form-control"
                 id="input-name"
                 name="input-name"
                 [(ngModel)]="hero.name"
                 placeholder="name" 
+                required
             />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="input-alter-ego" class="col-sm-2 col-form-label">Alter Ego:</label>
+        <div class="col-sm-10">
+            <input class="form-control"
+                id="input-alter-ego"
+                name="input-alter-ego"
+                [(ngModel)]="hero.alterEgo"
+                placeholder="alter ego" 
+            />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="select-power" class="col-sm-2 col-form-label">Power:</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="select-power" name="select-power" [(ngModel)]="hero.power">
+                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+            </select>
         </div>
     </div>
     <div class="d-flex flex-row-reverse justify-content-between">
         <div class="d-flex flex-row-reverse align-content-end">
-            <button type="submit" class="btn btn-primary ml-2">save</button>
+            <button type="submit" class="btn btn-primary ml-2" [disabled]="!hero.name">save</button>
             <button type="button" class="btn btn-danger ml-2" (click)="delete()">delete</button>
         </div>
         <a href="" (click)="goBack($event)">go back</a>

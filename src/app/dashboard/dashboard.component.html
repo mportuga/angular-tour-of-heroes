@@ -1,0 +1,14 @@
+<app-hero-search></app-hero-search>
+<div class="row">
+    <main class="col">
+        <h2>Top Heroes</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+            <div *ngFor="let hero of heroes" class="card m-2 flex-fill">
+                <div class="card-body">
+                    <h3 class="card-title">{{hero.name}}</h3>
+                    <a class="card-link" routerLink="/heroes/{{hero.id}}">See Details</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+    <aside class="col-sm-5">
+        <h2>My Heroes</h2>
+        <form class="form-inline" name="add-hero" (submit)="add(heroName.value); heroName.value=''">
+            <label for="#hero-name" class="mr-sm-2">Hero Name:</label>
+            <input class="form-control mr-sm-2"
+                #heroName
+                id="hero-name"
+                placeholder="Hero Name" 
+            />
+            <button type="submit" class="btn btn-primary my-2">add</button>
+        </form>
+        <nav class="list-group" role="tablist">
+            <a *ngFor="let hero of heroes" 
+                routerLink="/heroes/{{hero.id}}"
+                role="tab"
+                routerLinkActive="active"
+                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                {{hero.name}} <span class="badge badge-primary">{{hero.id}}</span> 
+            </a>
+        </nav>
+    </aside>
+    <main class="col-sm">
+        <router-outlet></router-outlet>
+    </main>
+</div>
+ 

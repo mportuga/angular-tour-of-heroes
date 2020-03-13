@@ -1,0 +1,21 @@
+<div id="search-component" class="row">
+    <section class="col">
+        <div class="dropdown mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label id="search-label" class="input-group-text" for="search-box">Hero Search</label>
+                </div>
+                <input #searchBox id="search-box" class="form-control" (input)="search(searchBox.value)" />
+            </div>
+            <div class="dropdown-menu w-100 text-center"
+                aria-labelledby="search-label"
+                [class.show]="(heroes$| async)?.length > 0">
+                <a *ngFor="let hero of heroes$ | async"
+                    routerLink="/heroes/{{hero.id}}"
+                    class="dropdown-item text-primary">
+                    {{hero.name}}
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

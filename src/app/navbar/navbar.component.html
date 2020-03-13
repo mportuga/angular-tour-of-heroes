@@ -1,0 +1,13 @@
+<header class="navbar navbar-expand navbar-light bg-light flex-column flex-md-row mb-3">
+    <span class="navbar-brand mb-0 h1" role="heading" aria-level="1">
+        <img [src]="logoUrl" width="37" height="40" alt="Logo" aria-hidden="true">
+        {{title}}
+    </span>
+    <div class="navbar-nav-scroll">
+        <ul class="navbar-nav flex-row">
+            <li *ngFor="let route of mainRoutes" class="nav-item">
+                <a class="nav-link" routerLink="/{{route}}" routerLinkActive="active">{{route | titlecase}}</a>
+            </li>
+        </ul>
+    </div>
+</header>

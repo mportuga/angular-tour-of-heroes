@@ -1,0 +1,13 @@
+<div *ngIf="messageService.messages.length" class="row pt-3">
+    <section class="col">
+        <header class="d-flex pb-3">
+            <h2>Messages</h2>
+            <button class="btn btn-light ml-3 text-danger"
+                type="button"
+                (click)="messageService.clear()">
+                clear
+            </button>
+        </header>
+        <div *ngFor="let message of messageService.messages" class="alert alert-primary" role="alert">{{message}}</div>
+    </section>
+</div>
